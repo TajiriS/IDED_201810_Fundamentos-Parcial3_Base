@@ -37,7 +37,20 @@ namespace Parcial3_Base
         /// <returns>'true' si las matrices pueden sumarse, 'false' de otro modo</returns>
         public bool SePuedenSumarMatrices(int[,] A, int[,] B)
         {
-            return false;
+            if (A.GetLength(0) == B.GetLength(0) && A.GetLength(1) == B.GetLength(1))
+            {
+                return true;
+            }
+
+            if (A.GetLength(0) == 0 || A.GetLength(1) == 0 || B.GetLength(0) == 0 || B.GetLength(1) == 0) 
+            {
+                return false;
+            }
+
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -74,7 +87,49 @@ namespace Parcial3_Base
         /// <returns>Un arreglo cuyos elementos están en orden inverso a arr</returns>
         public int[] InvertirArreglo(int[] arr)
         {
-            return null;
+            int a = 0;
+            int e = 0;
+            int b = 1;
+            int d = 0;
+            int c = 0;
+
+            if (arr.Length >= 0)
+            {
+                
+
+                while (a <= arr.Length)
+                {
+                    d = arr[b];
+                    arr[b] = arr[e];
+                    arr[e] = d;
+                    a += 1;
+                    e += 1;
+                    b += 1;
+                }
+
+                while (a == arr.Length && c < arr.Length)
+                {
+                    c += 1;
+                    a = c;
+                    e = 0;
+                    b = 1;
+
+                }
+
+                if (c == arr.Length)
+                {
+                    return arr;//return null;
+                }
+                else
+                {
+                    return arr;
+                }
+            }
+            else
+            {
+                return arr;
+            }
+
         }
 
         /// <summary>
@@ -85,7 +140,33 @@ namespace Parcial3_Base
         /// <returns>'true' si input es palíndromo, `false` de otro modo</returns>
         public bool EsPalindromo(string input)
         {
-            return false;
+            int b = input.Length;
+            int a = 0;
+            bool one = false;
+
+            while (a <= input.Length && b >= 0)
+            {
+                if(input[a] == input[b])
+                {
+                    one = true;
+                }
+                else
+                {
+                   
+                }
+                a += 1;
+                b -= 1;
+            }
+
+            if (a == input.Length && b == 0 && one == true)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -126,6 +207,21 @@ namespace Parcial3_Base
             int hrs = 0;
             int mins = 0;
             int segs = 0;
+
+            // hrs = totalSegs/3600;
+            // mins = 62/60;
+            //mins = totalSegs%60;
+            // segs = totalSegs%1;
+            if (totalSegs >= 60)
+            {
+                mins = totalSegs / 60;
+                segs = totalSegs % 60;
+            }
+            if (mins >= 60)
+            {
+                hrs = mins / 60;
+                mins = mins % 60;
+            }
             return string.Format("{0} hrs : {1} mins : {2} segs", hrs, mins, segs);
         }
 
